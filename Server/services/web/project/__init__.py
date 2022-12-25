@@ -15,15 +15,16 @@ app.config.from_object("project.config.Config")
 db = SQLAlchemy(app)
 
 
-class User(db.Model):
-    __tablename__ = "users"
+class Event(db.Model):
+    __tablename__ = "events"
 
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(128), unique=True, nullable=False)
-    active = db.Column(db.Boolean(), default=True, nullable=False)
+    ingest_time = db.Column(db.DateTime(), nullable=False)
+    event = db.Column(db.JSON(), nullable=False)
 
-    def __init__(self, email):
-        self.email = email
+    def __init__(self, ingest_time, event):
+        self.ingest_time = ingest_time
+        self.event = event
 
 
 @app.route("/")

@@ -1,6 +1,6 @@
 from flask.cli import FlaskGroup
 
-from project import app, db, User
+from project import app, db, Event
 
 
 cli = FlaskGroup(app)
@@ -15,7 +15,7 @@ def create_db():
 
 @cli.command("seed_db")
 def seed_db():
-    db.session.add(User(email="michael@mherman.org"))
+    db.session.add(Event("2020-01-01", {"hello": "world"}))
     db.session.commit()
 
 

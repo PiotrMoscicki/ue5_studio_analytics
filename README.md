@@ -7,7 +7,7 @@ and
 merged together to work with Unreal Engine 5 Studio Analytics feature
 
 ### Development
-
+[label](https://devblogs.microsoft.com/cppblog/whats-new-in-cmake-for-vs-code/)
 Uses the default Flask development server.
 
 1. Rename *.env.dev-sample* to *.env.dev*.
@@ -33,3 +33,9 @@ Uses gunicorn + nginx.
     ```
 
     Test it out at [http://localhost:1337](http://localhost:1337). No mounted folders. To apply changes, the image must be re-built.
+
+docker-compose exec web python manage.py seed_db
+docker-compose exec db psql --username=hello_flask --dbname=hello_flask_dev
+\c hello_flask_dev
+select * from events;
+\q
