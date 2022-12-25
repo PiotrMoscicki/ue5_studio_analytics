@@ -1,10 +1,10 @@
-# Dockerizing Flask with Postgres, Gunicorn, and Nginx
+# UE5 Studio Analytics server and plugin
 
-## Want to learn how to build this?
-
-Check out the [post](https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx).
-
-## Want to use this project?
+This is basically a copy of 
+    https://github.com/testdrivenio/flask-on-docker
+and
+    https://gist.github.com/regner/592bb2cfca82f064ccd5322ea4c5deb8
+merged together to work with Unreal Engine 5 Studio Analytics feature
 
 ### Development
 
