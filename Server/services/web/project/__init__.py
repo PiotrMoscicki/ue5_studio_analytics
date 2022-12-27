@@ -5,9 +5,12 @@ from flask import (
     jsonify,
     send_from_directory,
     request,
+    Response,
 )
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
+from datetime import datetime, timezone
+
 
 
 app = Flask(__name__)
@@ -31,6 +34,21 @@ class Event(db.Model):
 def hello_world():
     return jsonify(hello="world")
 
+@app.route("/datarouter/api/v1/public/data", methods=["POST"])
+def studio_analytics_v1() -> Response:
+    """Super simple implementation of the Epic public data endpoint."""
+    args = request.args
+    content = request.get_json()
+
+    if content is not None:
+        ingest_time = datetime.now(tz=timezone.utc)
+
+        for event in content["Events"]:
+            event.update(args)
+            db.session.add(Event(ingest_time, event))
+            db.session.commit()
+
+    return Response("{}", status=201, mimetype="application/json")
 
 @app.route("/static/<path:filename>")
 def staticfiles(filename):

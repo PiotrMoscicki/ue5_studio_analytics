@@ -1,0 +1,16 @@
+{
+    "AppID": "SomethingUniqueToCompany",
+    "UserID": "regnerblokandersen",
+    "P4Branch": "++project+main",
+    "EventName": "Performance.Loading",
+    "FirstTime": true,
+    "SessionID": "{40FD32AB-44A1-BD58-05E0-37A2A12E5300}",
+    "AppVersion": "++project+main-CL-1111111",
+    "DateOffset": "+00:00:00.685",
+    "UploadType": "eteventstream",
+    "LoadingName": "TotalEditorStartup",
+    "ProjectName": "Project",
+    "ComputerName": "Workstation",
+    "AppEnvironment": "datacollector-binary",
+    "LoadingSeconds": 164.196052
+  }

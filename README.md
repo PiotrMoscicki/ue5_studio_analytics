@@ -34,8 +34,10 @@ Uses gunicorn + nginx.
 
     Test it out at [http://localhost:1337](http://localhost:1337). No mounted folders. To apply changes, the image must be re-built.
 
+docker-compose up -d --build
 docker-compose exec web python manage.py seed_db
 docker-compose exec db psql --username=hello_flask --dbname=hello_flask_dev
 \c hello_flask_dev
 select * from events;
 \q
+docker-compose down
