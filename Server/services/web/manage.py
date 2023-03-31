@@ -19,19 +19,21 @@ def seed_db():
     db.session.add(Event("2020-01-01", {"hello": "world"}))
     db.session.commit()
 
+
 @cli.command("post_event")
 @click.argument("event_file")
 def post_event(event_file):
     with open(event_file, "r") as f:
         data = f.read()
     requests.post("http://localhost:5000/datarouter/api/v1/public/data", json=data)
-    
+
 
 @cli.command("get_events")
 def get_events():
     events = Event.query.all()
     for event in events:
         print(event.id, event.ingest_time, event.event)
+
 
 @cli.command("post_event_from_code")
 def post_event_from_code():
@@ -55,6 +57,7 @@ def post_event_from_code():
         ]
     }
     requests.post("http://localhost:5000/datarouter/api/v1/public/data", json=data)
+
 
 if __name__ == "__main__":
     cli()
