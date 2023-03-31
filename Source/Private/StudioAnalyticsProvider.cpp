@@ -3,6 +3,8 @@
 #include <AnalyticsET.h>
 #include <IAnalyticsProviderET.h>
 #include <StudioAnalytics.h>
+#include "Misc/App.h"
+#include "Windows/WindowsPlatformProcess.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogStudioAnalyticsProvider, Display, All);
 
