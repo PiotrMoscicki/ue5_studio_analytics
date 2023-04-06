@@ -10,7 +10,6 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, timezone
 
 
-
 app = Flask(__name__)
 app.config.from_object("project.config.Config")
 db = SQLAlchemy(app)
@@ -31,6 +30,7 @@ class Event(db.Model):
 @app.route("/")
 def hello_world():
     return jsonify(hello="world")
+
 
 @app.route("/datarouter/api/v1/public/data", methods=["POST"])
 def studio_analytics_v1() -> Response:
